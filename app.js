@@ -10,7 +10,8 @@ const bodyParser = require('body-parser');
 
 
 
-const mongoDb = config.dbUrl;
+
+const mongoDB = process.env.MONGODB_URI || config.dbUrl;
 mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
