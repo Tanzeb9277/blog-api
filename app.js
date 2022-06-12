@@ -1,5 +1,5 @@
 const express = require("express");
-const config = require("./config");
+//const config = require("./config");
 const path = require("path");
 const session = require("express-session");
 const passport = require("passport");
@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 
 
 
-const mongoDB = process.env.MONGODB_URI || config.dbUrl;
+const mongoDB = process.env.MONGODB_URI || process.env.DB_URL;
 mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
